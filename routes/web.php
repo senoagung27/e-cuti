@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +17,12 @@
 //     return view('welcome');
 // });
 
-// Auth::routes();
+Auth::routes();
 
-Route::get('/', 'HomeController@index')->name('home');
+Route::post('login', 'AuthController@login');
+Route::group(['prefix' => 'auth', 'middleware' => 'auth:sanctum'], function() {
+    // manggil controller sesuai bawaan laravel 8
+    Route::get('/', 'HomeController@index')->name('home');
 Route::get('/Pegawai', 'PegawaiController@index');
 Route::get('/TambahPegawai', 'PegawaiController@create')->name('pegawai.create');
 Route::post('/SimpanPegawai', 'PegawaiController@store');
@@ -34,5 +39,11 @@ Route::post('/SimpanCuti', 'CutiController@store');
 Route::get('/HapusCuti/{id}', 'CutiController@delete');
 Route::get('/EditCuti/{id}', 'CutiController@edit');
 Route::post('/SimpanEditCuti/{id}', 'CutiController@update');
+    Route::post('logout', [AuthController::class, 'logout']);
+    // manggil controller dengan mengubah namespace di RouteServiceProvider.php biar bisa kayak versi2 sebelumnya
+    Route::post('logoutall', 'AuthController@logoutall');
+});
+
+
 
 // Route::get('/frontend', 'HomeController@frontend');
