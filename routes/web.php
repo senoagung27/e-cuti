@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,6 +13,19 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+// Auth::routes();
+
+// Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+// Route::group(['middleware' => ['auth']], function() {
+//     Route::resource('roles', RoleController::class);
+//     Route::resource('users', UserController::class);
+//     Route::resource('products', ProductController::class);
+// });
 
 // Route::get('/', function () {
 //     return view('login');
@@ -51,20 +65,20 @@ use Illuminate\Support\Facades\Route;
 /**
  * Home Routes
  */
-Route::get('/', 'HomeController@index')->name('home.index');
+// Route::get('/', 'HomeController@index')->name('home.index');
+// Route::get('/', function () {
+//     return view('welcome');
+
+//     Route::get('/login', 'LoginController@show')->name('login.show');
+//     Route::post('/login', 'LoginController@login')->name('login.perform');
+//     Route::get('/register', 'RegisterController@show')->name('register.show');
+//     Route::post('/register', 'RegisterController@register')->name('register.perform');
+// });
 
 Route::group(['middleware' => ['guest']], function () {
-    /**
-     * Register Routes
-     */
-    Route::get('/register', 'RegisterController@show')->name('register.show');
-    Route::post('/register', 'RegisterController@register')->name('register.perform');
 
-    /**
-     * Login Routes
-     */
-    Route::get('/login', 'LoginController@show')->name('login.show');
-    Route::post('/login', 'LoginController@login')->name('login.perform');
+    Route::get('/home', [HomeController::class, 'index'])->name('home');
+
 
     Route::get('/Pegawai', 'PegawaiController@index');
     Route::get('/TambahPegawai', 'PegawaiController@create')->name('pegawai.create');
@@ -83,6 +97,7 @@ Route::group(['middleware' => ['guest']], function () {
     Route::get('/EditCuti/{id}', 'CutiController@edit');
     Route::post('/SimpanEditCuti/{id}', 'CutiController@update');
     Route::post('logout', [AuthController::class, 'logout']);
+    Route::get('/logout', 'AuthController@perform')->name('logout.perform');
 });
 
 Route::group(['middleware' => ['auth']], function () {

@@ -12,7 +12,7 @@
          <ul class="sidebar-menu">
              <li class="menu-header">Dashboard</li>
              <li class="nav-item dropdown">
-                 <a href="/"><i class="fas fa-fire"></i><span>Dashboard</span></a>
+                 <a href="/home"><i class="fas fa-fire"></i><span>Dashboard</span></a>
              </li>
              <li class="menu-header">Data Master</li>
              <li>
