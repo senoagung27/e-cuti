@@ -31,7 +31,7 @@ class CutiController extends Controller
                 'lama_cuti' => $request->lama_cuti,
                 'keterangan' => $request->keterangan,
                 'sisa_cuti' => $request->sisa_cuti,
-                'status' => $request->status,
+                'status' => 'Pending',
             ]
         );
         // return view('JenisHak.create');

@@ -1,6 +1,5 @@
  @extends('layouts.app')
  @section('content')
-
      <div class="main-content">
          <section class="section">
              @if (('session')('edit'))
@@ -68,12 +67,12 @@
                                                      <td class="project-state">
                                                          @if ($data->status === 'Accept')
                                                              <span class="badge badge-success">{{ $data->status }}</span>
-
+                                                         @elseif ($data->status === 'Pending')
+                                                             <span class="badge badge-warning">{{ $data->status }}</span>
                                                          @else
                                                              <span class="badge badge-danger">{{ $data->status }}</span>
                                                          @endif
                                                      </td>
-
                                                      <td> <a href="/EditCuti/{{ $data->id }}"
                                                              class="btn btn-primary btn-action mr-1"><i
                                                                  class="fas fa-pencil-alt"></i></a>
@@ -81,7 +80,6 @@
                                                              class="btn btn-danger btn-action"><i
                                                                  class="fas fa-trash"></i></a>
                                                      </td>
-
                                              </tr>
                                              @endforeach
                                          </tbody>
@@ -96,5 +94,4 @@
      </div>
      </section>
      </div>
-
  @endsection

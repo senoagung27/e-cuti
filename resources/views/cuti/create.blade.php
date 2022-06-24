@@ -1,6 +1,5 @@
  @extends('layouts.app')
  @section('content')
-
      <div class="main-content">
          <section class="section">
              <div class="section-header">
@@ -100,7 +99,7 @@
                                                  </div>
                                              </div>
                                          </div>
-                                         <div class="col-6">
+                                         {{-- <div class="col-6">
                                              <div class="form-group">
                                                  <label>Status</label>
                                                  <div class="input-group">
@@ -119,12 +118,14 @@
                                                      </select>
                                                  </div>
                                              </div>
-                                         </div>
-                                         <div class="card-footer">
-                                             <button type="submit" class="btn btn-primary">Tambah Pegawai</button>
-                                             <button type="reset" class="btn btn-danger">
-                                                 Reset
-                                             </button>
+                                         </div> --}}
+                                         <div class="col-6">
+                                             <div class="card-footer">
+                                                 <button type="submit" class="btn btn-primary">Tambah Pegawai</button>
+                                                 <button type="reset" class="btn btn-danger">
+                                                     Reset
+                                                 </button>
+                                             </div>
                                          </div>
                                      </div>
                              </form>
@@ -134,5 +135,4 @@
              </div>
          </section>
      </div>
-
  @endsection
