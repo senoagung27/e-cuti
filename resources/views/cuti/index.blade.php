@@ -69,6 +69,8 @@
                                                          @if ($data->status === 'Accept')
                                                              <span class="badge badge-success">{{ $data->status }}</span>
 
+                                                         @elseif ($data->status === 'Pending')
+                                                             <span class="badge badge-warning">{{ $data->status }}</span>
                                                          @else
                                                              <span class="badge badge-danger">{{ $data->status }}</span>
                                                          @endif

@@ -93,6 +93,7 @@
                                                      <select class="custom-select" name="status" required>
                                                          <option value="Pending" @if ($dataCuti->status == 'Pending') selected @endif>Pending</option>
                                                          <option value="Accept" @if ($dataCuti->status == 'Accept') selected @endif>Accept</option>
+                                                         <option value="Reject" @if ($dataCuti->status == 'Reject') selected @endif>Reject</option>>
                                                      </select>
                                                  </div>
                                              </div>
